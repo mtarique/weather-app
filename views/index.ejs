@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%- `${process.env.APP_NAME}` %></title>
+    <link
+      rel="shortcut icon"
+      href="https://img.icons8.com/office/16/000000/sunset--v2.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+</head>
+<body>
+    <!-- <h3>Weather Application</h3>
+    <p>Weather forecasting is very necessary for our daily lives. It helps us to prepare and make plans depending on the expectations. Many weather stations are placed around the world fetching real-time weather elements data.</p>
+    <p>This data includes six elements, such as precipitation, wind, atmospheric pressure, cloudiness, and temperature. With these, you can analyze trends and know the prediction of tomorrow's data or forecast the weather.</p>
+    <p>Most of these large chunks of data are processed at base stations using powerful and sophisticated systems. They then share this data, (either analyzed over a long time or real-time data) through APIs. Companies that do this includes OpenWeatherMap and Dark Sky.</p>
+    <a href="https://www.section.io/engineering-education/create-a-weather-app-in-nodejs-using-openweathermap-api/#key-takeaways" target="_blank">
+        Reference
+    </a> -->
+    <div class="container">
+
+        <!-- This shall hold the input fields and the output data -->
+        <fieldset>
+          <!-- This form shall be used to fetch your city name -->
+          <form action="/" method="post">
+            <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+            <input type="submit" class="ghost-button" value="Get Weather">
+          </form>
+      
+          <!-- Upon fetching of data you will display it -->
+          <%if( weather !== null){ %>
+          <div class="grid">
+            <p>
+              <%= place %>
+            </p>
+            <p class="text-muted small">
+              <%= timezone %>
+            </p>
+          </div>
+      
+          <!-- You can find other data fetched by the app on the console in JSON form and display it as you please -->
+          <div class="card-deck">
+            <div class="card card-accent-dark mb-3" style="max-width: 18rem;">
+              <div class="card-header">Summary</div>
+              <div class="card-body text-dark">Bootstrap CSS
+                <img src="<%= icon %>" alt="Weather-Icon">
+                <h5 class="card-title">Temperature</h5>
+                <p class="card-text">
+                  In Degrees:
+                  <%= temp %>°C/
+                  <%= fahrenheit %>°F
+                </p>
+                <h5 class="card-title">Main</h5>
+                <p class="card-text">
+                  <%= main %>
+                </p>
+              </div>
+            </div>
+            <div class="card-deck">
+              <div class="card card-acTomorrowcent-dark mb-3" style="max-width: 18rem;">
+                <div class="card-header">Description</div>
+                <div class="card-body text-dark">
+                  <h5 class="card-title">Overall Description: </h5>
+                  <p class="card-text">
+                    <%= description %>
+                  </p>
+                  <h5 class="card-title">Cloud coverage: </h5>
+                  <p class="card-text">
+                    <%= clouds %>%
+                  </p>
+                  <h5 class="card-title">Visibility: </h5>
+                  <p class="card-text">
+                    <%= visibility %> meters
+                  </p>
+                </div>
+              </div>
+              <div class="card-deck">
+                <div class="card card-accent-dark mb-3" style="max-width: 18rem;">
+                  <div class="card-header">Other info</div>
+                  <div class="card-body text-dark">
+                    <h5 class="card-title">Humidity: </h5>
+                    <p class="card-text">
+                      <%= humidity %> g.m-3
+                    </p>
+                  </div>
+                  <div class="card-body text-dark">
+                    <h5 class="card-title">Pressure: </h5>
+                    <p class="card-text">
+                      <%= pressure %> N·m−2
+                    </p>
+                  </div>
+                </div>
+              </div>
+      
+              <% } %>
+      
+              <% if(error !== null){ %>
+              <p>
+                <%= error %>
+              </p>
+              <% } %>
+        </fieldset>
+      </div>
+    
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>
